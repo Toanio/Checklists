@@ -47,7 +47,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="97m-dz-KGD">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ELZ-1l-REx">
                             <connections>
-                                <segue destination="lzk-7T-A0L" kind="show" id="7Ah-SY-Zd9"/>
+                                <segue destination="lzk-7T-A0L" kind="show" identifier="AddItem" id="7Ah-SY-Zd9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
