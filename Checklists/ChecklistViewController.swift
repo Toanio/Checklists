@@ -20,6 +20,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated: true)
+        saveChecklistItems()
     }
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem
     ) {
@@ -30,6 +31,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
             }
         }
         navigationController?.popViewController(animated: true)
+        saveChecklistItems()
     }
     
     override func prepare(
@@ -79,6 +81,9 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         item5.text = "Eat ice cream"
         items.append(item5)
         
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
+        
     }
 
     func configurCheckmark(
@@ -127,6 +132,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
             configurCheckmark(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        saveChecklistItems()
     }
     override func tableView(
         _ tableView: UITableView,
@@ -137,9 +143,36 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        saveChecklistItems()
     }
     
-   
+    func documentsDirectory() -> URL {
+        let path = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask)
+        return path[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return
+        documentsDirectory().appendingPathComponent("Checklists.plist")
+    }
+    
+    func saveChecklistItems() {
+        
+        let encoder = PropertyListEncoder()
+        
+        do {
+            
+            let data = try encoder.encode(items)
+            
+            try data.write(
+                to: dataFilePath(),
+                options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding item array: \(error.localizedDescription)")
+        }
+    }
     
 }
 
