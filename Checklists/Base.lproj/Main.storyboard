@@ -45,6 +45,9 @@
                                         <constraint firstItem="jCE-iD-dAz" firstAttribute="top" secondItem="gXr-HW-GC2" secondAttribute="top" constant="10" id="tq0-sZ-hZR"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="lzk-7T-A0L" kind="show" identifier="EditItem" trigger="accessoryAction" id="kLY-aV-NBc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,7 +70,7 @@
         <!--Add Item-->
         <scene sceneID="m4D-yM-aRc">
             <objects>
-                <tableViewController id="lzk-7T-A0L" customClass="AddItemTableViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="lzk-7T-A0L" customClass="ItemDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="qvQ-WJ-Hcy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,6 +151,9 @@
             <point key="canvasLocation" x="-156" y="-203.74812593703149"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kLY-aV-NBc"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
