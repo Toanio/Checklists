@@ -60,6 +60,8 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        loadChecklistItems()
+        
         let item1 = ChecklistItem()
         item1.text = "Walk the dog"
         items.append(item1)
@@ -174,5 +176,23 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         }
     }
     
+    func loadChecklistItems() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path) {
+            
+            let decoder = PropertyListDecoder()
+            do {
+                
+                items = try decoder.decode(
+                    [ChecklistItem].self,
+                    from: data)
+            } catch {
+                print("Error decoding item array: \(error.localizedDescription)")
+            }
+        }
+            
+    }
 }
 
