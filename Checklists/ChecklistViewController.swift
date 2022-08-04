@@ -53,12 +53,13 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
 
     var items = [ChecklistItem]()
+    var checklist: Checklist!
 
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
         
         loadChecklistItems()
         
@@ -85,6 +86,8 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         
         print("Documents folder is \(documentsDirectory())")
         print("Data file path is \(dataFilePath())")
+        
+        title = checklist.name
         
     }
 
