@@ -7,7 +7,15 @@
 
 import UIKit
 
-class AllListsTableViewController: UITableViewController, ListDetailViewControllerDelegate{
+class AllListsTableViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate{
+    func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool) {
+            if viewController === self {
+                dataModel.indexOfSelectedChecklist = -1
+            }
+    }
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
@@ -43,6 +51,20 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifire)
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.delegate = self
+        
+        let index = dataModel.indexOfSelectedChecklist
+        if index >= 0 && index < dataModel.lists.count{
+            let checklist = dataModel.lists[index]
+            performSegue(
+                withIdentifier: "ShowChecklist",
+                sender: checklist)
+        }
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataModel.lists.count
@@ -63,6 +85,8 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
         performSegue(
             withIdentifier: "ShowChecklist",
             sender: checklist)
+        
+        dataModel.indexOfSelectedChecklist = indexPath.row
     }
     
     override func tableView(
