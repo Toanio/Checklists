@@ -328,6 +328,7 @@
         <segue reference="7Ah-SY-Zd9"/>
         <segue reference="DME-YW-MiF"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.015686274509803921" green="0.66274509803921566" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
