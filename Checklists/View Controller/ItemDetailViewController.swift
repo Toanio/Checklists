@@ -27,6 +27,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate{
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +44,10 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate{
             title = "Edit Item"
             textField.text = item.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = item.shouldRemind
+            datePicker.date = item.dueDate
         }
+        
         
     }
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -56,14 +61,25 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate{
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textField.text!
+            
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            
             delegate?.itemDetailViewController(
                 self,
                 didFinishEditing: item
             )
+            
         } else {
             let item = ChecklistItem()
+            
             item.text = textField.text!
+            
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            
             delegate?.itemDetailViewController(self, didFinishAdding: item)
+            
         }
         
     }

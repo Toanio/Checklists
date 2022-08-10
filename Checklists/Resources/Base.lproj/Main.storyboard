@@ -276,6 +276,68 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="Onn-17-07A">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="5lv-cN-iGr">
+                                        <rect key="frame" x="0.0" y="84.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5lv-cN-iGr" id="EW6-yx-TBD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrO-hf-QFE">
+                                                    <rect key="frame" x="24" y="11.5" width="286" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7se-E3-ub6">
+                                                    <rect key="frame" x="318" y="6.5" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.015686274510000001" green="0.66274509800000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OrO-hf-QFE" firstAttribute="centerY" secondItem="EW6-yx-TBD" secondAttribute="centerY" id="O52-eL-1dj"/>
+                                                <constraint firstItem="OrO-hf-QFE" firstAttribute="leading" secondItem="EW6-yx-TBD" secondAttribute="leadingMargin" constant="8" id="X21-KT-d3e"/>
+                                                <constraint firstItem="7se-E3-ub6" firstAttribute="centerY" secondItem="EW6-yx-TBD" secondAttribute="centerY" id="o8H-dN-7IP"/>
+                                                <constraint firstItem="7se-E3-ub6" firstAttribute="leading" secondItem="OrO-hf-QFE" secondAttribute="trailing" constant="8" id="rzs-tk-71Z"/>
+                                                <constraint firstAttribute="trailing" secondItem="7se-E3-ub6" secondAttribute="trailing" constant="8" id="sbJ-QQ-Rid"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Kk1-XZ-E64">
+                                        <rect key="frame" x="0.0" y="128" width="375" height="52.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kk1-XZ-E64" id="baK-VF-vU7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTW-UF-KRP">
+                                                    <rect key="frame" x="24" y="16" width="97" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aFB-9j-N6c">
+                                                    <rect key="frame" x="129" y="4" width="230" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="230" id="Vrw-by-CMf"/>
+                                                        <constraint firstAttribute="height" constant="44" id="yQX-ZB-PNM"/>
+                                                    </constraints>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CTW-UF-KRP" firstAttribute="centerY" secondItem="baK-VF-vU7" secondAttribute="centerY" id="1u0-FF-GCO"/>
+                                                <constraint firstItem="aFB-9j-N6c" firstAttribute="leading" secondItem="CTW-UF-KRP" secondAttribute="trailing" constant="8" id="DYX-ov-OXB"/>
+                                                <constraint firstAttribute="trailing" secondItem="aFB-9j-N6c" secondAttribute="trailing" constant="16" id="a3L-g5-QTI"/>
+                                                <constraint firstAttribute="bottom" secondItem="aFB-9j-N6c" secondAttribute="bottom" constant="4" id="bnB-kw-TWN"/>
+                                                <constraint firstItem="aFB-9j-N6c" firstAttribute="top" secondItem="baK-VF-vU7" secondAttribute="top" constant="4" id="f3r-ml-G34"/>
+                                                <constraint firstItem="CTW-UF-KRP" firstAttribute="leading" secondItem="baK-VF-vU7" secondAttribute="leadingMargin" constant="8" id="gLI-MA-GtD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="lzk-7T-A0L" id="1El-ye-Ukt"/>
@@ -297,13 +359,15 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="datePicker" destination="aFB-9j-N6c" id="8UK-bo-6Tk"/>
                         <outlet property="doneBarButton" destination="dvu-ne-RvD" id="0vT-gy-loz"/>
+                        <outlet property="shouldRemindSwitch" destination="7se-E3-ub6" id="bZM-72-h27"/>
                         <outlet property="textField" destination="yqh-dJ-f4K" id="52g-9I-QYB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYx-Au-RUc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="-204"/>
+            <point key="canvasLocation" x="2436" y="-204.64767616191907"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xOt-zp-eCF">
