@@ -31,6 +31,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate{
     @IBOutlet weak var datePicker: UIDatePicker!
     
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
@@ -64,7 +65,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate{
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = datePicker.date
-            
+            item.scheduleNotification()
             delegate?.itemDetailViewController(
                 self,
                 didFinishEditing: item
@@ -77,7 +78,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate{
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = datePicker.date
-            
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishAdding: item)
             
         }
@@ -107,5 +108,18 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate{
         doneBarButton.isEnabled = false
         return true
     }
+    
+    @IBAction func shouldRemindToggled(_ switchControl: UISwitch){
+        textField.resignFirstResponder()
+        
+        if switchControl.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) {_ , _ in
+                
+            }
+        }
+    }
+    
+    
 
 }
